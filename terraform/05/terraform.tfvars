@@ -1,0 +1,5 @@
+location = "uksouth"
+appServiceName = "appservicename246"
+storageAccountName = "Standard"
+Schedule = "Standard"
+retentionPolicy = "Standard"
