@@ -1,15 +1,24 @@
 variable "location" {
-  type    = string
+  type = string
+}
+variable "group" {
+  type = string
 }
 variable "appServiceName" {
-  type    = string
+  type = string
 }
 variable "pricingTier" {
-  type    = string
+  type = string
 }
 variable "numOfNodes" {
-  type    = number
+  type = number
 }
 variable "dockerImage" {
-  type    = string
+  type = string
+}
+variable "storageAccountName" {
+  type = string
+}
+variable "schedule" {
+  type = object({ frequency_interval = number, frequency_unit = string, retentionPolicy = number })
 }
