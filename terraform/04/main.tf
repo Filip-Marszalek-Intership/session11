@@ -24,3 +24,9 @@ resource "azurerm_storage_account" "example" {
     environment = "staging"
   }
 }
+
+resource "azurerm_storage_container" "example" {
+  name                  = "${var.storageAccountName}container"
+  storage_account_name  = azurerm_storage_account.example.name
+  container_access_type = "container"
+}
