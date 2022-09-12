@@ -21,7 +21,7 @@ data "azurerm_storage_account" "example" {
 data "azurerm_storage_account_sas" "example" {
   connection_string = data.azurerm_storage_account.example.primary_connection_string
   https_only        = true
-  signed_version    = "2017-07-29"
+  signed_version    = "2021-06-08"
 
   resource_types {
     service   = false
@@ -70,7 +70,7 @@ resource "azurerm_linux_web_app" "example" {
 
   backup {
     name                = "${var.appServiceName}_backup"
-    storage_account_url = data.azurerm_storage_account_sas.example.sas
+    storage_account_url = format("%s%s%s", data.azurerm_storage_account.example.primary_blob_endpoint, "${var.storageAccountName}container", data.azurerm_storage_account_sas.example.sas)
     schedule {
       frequency_interval    = var.schedule.frequency_interval
       frequency_unit        = var.schedule.frequency_unit
